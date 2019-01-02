@@ -1,0 +1,34 @@
+{% extends 'listing/base.html'%}
+	{% block PROJECT_NAME%} {{object.name}} {% endblock %}
+	
+    {% block contents %}
+
+{% for version in object.versions.all %}
+
+<div class="row">
+	<div class="panel panel-success">
+	<div class="panel-heading"> <h2 class="panel-title"> {{ version.name}}</h2> </div>
+	<div class="panel-body">
+
+	{% for image in version.images.all %}
+	  <div class="col-md-4">
+	    <div class="thumbnail">
+	      <a href="{{image.avatar.url}} " data-lightbox="{{version.id}}">
+	        <img src="{{image.avatar.url}}" alt="Lights" style="width:100%">
+	        <div class="caption">
+	          <p>Lorem ipsum Lorem ipsum</p>
+	        </div>
+	      </a>
+	    </div>
+	  </div>
+	  {% endfor %}
+	  </div>
+	  </div>
+</div>
+
+{% endfor %}
+
+    {% endblock %}
+
+
+
